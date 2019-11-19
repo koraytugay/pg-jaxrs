@@ -22,6 +22,8 @@ import biz.tugay.pg.jaxrs.service.MessageService;
 @Produces(MediaType.APPLICATION_JSON)
 public class MessageResource
 {
+  // This must be static.
+  // Jersey seems to create a new MessageResource instance for every incoming request.
   private static MessageService messageService = new MessageService();
 
   private CommentSubResource commentSubResource = new CommentSubResource();

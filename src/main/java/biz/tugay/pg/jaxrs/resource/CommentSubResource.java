@@ -12,7 +12,7 @@ public class CommentSubResource
   @GET
   @Produces(MediaType.TEXT_PLAIN)
   public String getCommentForMessage(
-      @PathParam("messageId") String messageId,
+      @PathParam("messageId") String messageId,  // {messageId} is carried from MessageResource
       @PathParam("commentId") String commentId)
   {
     return String.format("Retrieving comment: %s for message: %s\n", commentId, messageId);
