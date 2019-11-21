@@ -18,7 +18,7 @@ import javax.ws.rs.core.Response.Status;
 import biz.tugay.pg.jaxrs.modal.Message;
 import biz.tugay.pg.jaxrs.service.MessageService;
 
-@Path("/messages")
+@Path("messages")
 @Produces(MediaType.APPLICATION_JSON)
 public class MessageResource
 {
