@@ -72,7 +72,7 @@ public class MessageResource
   @Path("{messageId}")
   // curl -i localhost:8080/api/messages/1
   public Response findById(@PathParam("messageId") long id) {
-    return Response.status(Status.FOUND).entity(messageService.findById(id)).build();
+    return Response.ok(messageService.findById(id)).build();
   }
 
   // curl -i -d '{"author":"John","content":"Hi!"}' -H Content-Type:application/json localhost:8080/api/messages
