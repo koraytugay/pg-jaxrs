@@ -48,7 +48,7 @@ public class MessageResource
     // I needed the `toArray` otherwise I was getting:
     // MessageBodyWriter not found for media type=application/json, type=class java.util.ArrayList,
     // genericType=class java.util.ArrayList.
-    return Response.status(Status.FOUND).entity(filter.toArray(new Message[0])).build();
+    return Response.ok(filter.toArray(new Message[0])).build();
   }
 
   @GET
@@ -65,7 +65,7 @@ public class MessageResource
     // I needed the `toArray` otherwise I was getting:
     // MessageBodyWriter not found for media type=application/json, type=class java.util.ArrayList,
     // genericType=class java.util.ArrayList.
-    return Response.status(Status.FOUND).entity(filter.toArray(new Message[0])).build();
+    return Response.ok(filter.toArray(new Message[0])).build();
   }
 
   @GET
