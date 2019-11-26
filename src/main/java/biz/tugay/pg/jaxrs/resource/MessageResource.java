@@ -37,6 +37,7 @@ public class MessageResource
 
   @GET
   @Path("filter")
+  @Produces(MediaType.APPLICATION_JSON)
   // curl -i 'localhost:8080/api/messages/filter?author=koray&content=hello'
   public Response filter(@QueryParam("author") String author, @QueryParam("content") String content) {
     List<Message> filter = messageService.filter(
@@ -45,14 +46,12 @@ public class MessageResource
     if (filter.isEmpty()) {
       return Response.status(Status.NO_CONTENT).build();
     }
-    // I needed the `toArray` otherwise I was getting:
-    // MessageBodyWriter not found for media type=application/json, type=class java.util.ArrayList,
-    // genericType=class java.util.ArrayList.
-    return Response.ok(filter.toArray(new Message[0])).build();
+    return Response.ok(filter).build();
   }
 
   @GET
   @Path("beanFilter")
+  @Produces(MediaType.APPLICATION_JSON)
   // This one is just an example on how we can compact the query params in case they start to get too big
   // curl -i 'localhost:8080/api/messages/beanFilter?author=koray&content=hello'
   public Response beanFilter(@BeanParam MessageFilterBean messageFilterBean) {
@@ -62,10 +61,7 @@ public class MessageResource
     if (filter.isEmpty()) {
       return Response.status(Status.NO_CONTENT).build();
     }
-    // I needed the `toArray` otherwise I was getting:
-    // MessageBodyWriter not found for media type=application/json, type=class java.util.ArrayList,
-    // genericType=class java.util.ArrayList.
-    return Response.ok(filter.toArray(new Message[0])).build();
+    return Response.ok(filter).build();
   }
 
   @GET
